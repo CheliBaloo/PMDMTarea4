@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="textStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">20dp</item>
+    </style>
+    <style name="welcome_text">
+        <item name="android:textSize">60sp</item>
+        <item name="fontFamily">@font/extrabeige</item>
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+    <style name="step_text">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/purple</item>
+        <item name="android:paddingBottom">50dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+    </style>
+</resources>
