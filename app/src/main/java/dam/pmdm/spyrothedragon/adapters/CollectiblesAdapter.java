@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import dam.pmdm.spyrothedragon.MainActivity;
 import dam.pmdm.spyrothedragon.R;
 import dam.pmdm.spyrothedragon.models.Collectible;
 
@@ -35,6 +36,7 @@ public class CollectiblesAdapter extends RecyclerView.Adapter<CollectiblesAdapte
         // Cargar la imagen (simulado con un recurso drawable)
         int imageResId = holder.itemView.getContext().getResources().getIdentifier(collectible.getImage(), "drawable", holder.itemView.getContext().getPackageName());
         holder.imageImageView.setImageResource(imageResId);
+        holder.itemView.setOnClickListener(view->((MainActivity) view.getContext()).onCollectibleSelected(collectible, view));
     }
 
     @Override

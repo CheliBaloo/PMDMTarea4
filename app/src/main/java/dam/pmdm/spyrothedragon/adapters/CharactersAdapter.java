@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import dam.pmdm.spyrothedragon.MainActivity;
 import dam.pmdm.spyrothedragon.R;
 import dam.pmdm.spyrothedragon.models.Character;
 
@@ -35,6 +36,7 @@ public class CharactersAdapter extends RecyclerView.Adapter<CharactersAdapter.Ch
         // Cargar la imagen (simulado con un recurso drawable)
         int imageResId = holder.itemView.getContext().getResources().getIdentifier(character.getImage(), "drawable", holder.itemView.getContext().getPackageName());
         holder.imageImageView.setImageResource(imageResId);
+        holder.itemView.setOnLongClickListener(view->((MainActivity) view.getContext()).onCharacterSelected(character, view));
     }
 
     @Override
