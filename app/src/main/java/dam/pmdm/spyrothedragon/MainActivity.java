@@ -170,8 +170,8 @@ public class MainActivity extends AppCompatActivity {
         //Iniciamos el AnimatorSet y las animaciones comunes para todos los pasos
         AnimatorSet animatorSet = new AnimatorSet();
         ObjectAnimator fade_text = ObjectAnimator.ofFloat(guideBinding.textSteps,"alpha", 0f, 1f );
-        ObjectAnimator scaleX_circle = ObjectAnimator.ofFloat(guideBinding.tabSelector, "scaleX", 0f,4f);
-        ObjectAnimator scaleY_circle = ObjectAnimator.ofFloat(guideBinding.tabSelector, "scaleY", 0f, 4f);
+        ObjectAnimator scaleX_circle = ObjectAnimator.ofFloat(guideBinding.tabSelector, "scaleX", 0f,2.5f);
+        ObjectAnimator scaleY_circle = ObjectAnimator.ofFloat(guideBinding.tabSelector, "scaleY", 0f, 2.5f);
         if(guideScreen<4){ //Para los 3 primero pasos, tomamos las posiciones de los botones de navegación y cambiamos el texto del bocadillo. También navegamos a otro fragmento si es necesario
             if(guideScreen == 1){
                 posBefore = 0;
@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
             }
             //Creamos las animaciones específicas: movimientos en el eje X
             ObjectAnimator spyro_moveX = ObjectAnimator.ofFloat(guideBinding.imgSteps, "translationX", posBefore, pos);
-            ObjectAnimator circle_moveX = ObjectAnimator.ofFloat(guideBinding.tabSelector, "translationX", posBefore-32.5f, pos-32.5f);
+            ObjectAnimator circle_moveX = ObjectAnimator.ofFloat(guideBinding.tabSelector, "translationX", posBefore-40f, pos-40f);
 
             //Lanzamos las animaciones
             animatorSet.playTogether(spyro_moveX, circle_moveX,scaleX_circle, scaleY_circle, fade_text);
@@ -199,9 +199,10 @@ public class MainActivity extends AppCompatActivity {
 
         }else if(guideScreen == 4){ //En el 4 paso, la animación se moverá en el eje Y
             guideBinding.textSteps.setText(R.string.dialog_about);
+            guideBinding.imgSteps.setRotation(-90);
             float posY = guideBinding.guideLayout.getHeight()-binding.toolbar.getHeight()*2; //Tomamos la posición a la que tiene que ir los marcadores, según las otras Views
             //Creamos y lanzamos animaciones
-            ObjectAnimator circle_moveY = ObjectAnimator.ofFloat(guideBinding.tabSelector, "translationY", 0f, -posY);
+            ObjectAnimator circle_moveY = ObjectAnimator.ofFloat(guideBinding.tabSelector, "translationY", 0f, -posY-75);
             ObjectAnimator spyro_moveY = ObjectAnimator.ofFloat(guideBinding.imgSteps, "translationY", 0f, -posY+200f);
             animatorSet.setDuration(1000);
             animatorSet.playTogether(circle_moveY, spyro_moveY, fade_text, scaleX_circle, scaleY_circle);
@@ -213,6 +214,8 @@ public class MainActivity extends AppCompatActivity {
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 guideBinding.imgSteps.setImageResource(R.drawable.spyro_guide);
+                if(guideScreen == 4)
+                    guideBinding.imgSteps.setRotation(0);
             }
         });
 
