@@ -30,6 +30,10 @@ También cuenta con 2 EasterEgg:
 
 La aplicación cuenta con sonidos ambientados en la temática.
 
+## Video demostración ##
+
+https://github.com/user-attachments/assets/2facb9a2-4482-4c03-877e-0aa5698d7a33
+
 ## Tecnologías utilizadas ##
 La tecnología utilizada para mi parte del desarrollo han sido las siguientes:
 - *ObjectAnimator* y *AnimatorSet* para las animaciones de la guía.
